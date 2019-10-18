@@ -1,15 +1,13 @@
-# Serverless Batch
+# Serverless Batch Custom Image
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 
-**This is fork from https://github.com/justinram11/serverless-aws-batch with additional features (custom image for docker and autocreation/deletion of ECR Repository)**
+**This is WORKING fork from https://github.com/justinram11/serverless-aws-batch with additional features (custom image for docker)**
 
 
 A Serverless v1.x plugin that makes creating and running AWS Batch tasks as easy as creating a Serverless Lambda Function.
 
 Tested with:
-* Serverless >= v1.43
 * Python 3.7
-* Node.JS 10
 
 **Disclaimer: This project has not yet been well tested and is not yet recommended for a production system**
 
@@ -19,14 +17,14 @@ First make sure than you have Docker installed and running
 Then add the plugin to your serverless project:
 
 ```
-npm install serverless-aws-batch-custom --save-dev
+npm install serverless-aws-batch-custom-image --save-dev
 ```
 
 Modify the `serverless.yml` file to include the plugin:
 
 ```yaml
 plugins:
-  - serverless-aws-batch-custom
+  - serverless-aws-batch-custom-image
 ```
 
 Next we need to define our [AWS Batch Compute Resource](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html)

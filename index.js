@@ -49,17 +49,15 @@ class ServerlessAWSBatch {
             'before:package:compileFunctions': () => BbPromise.bind(this)
                 .then(batchenvironment.validateAWSBatchServerlessConfig)
                 .then(batchenvironment.generateAWSBatchTemplate)
-                .then(batchtask.compileBatchTasks),
-
-            'after:package:createDeploymentArtifacts': () => BbPromise.bind(this)
+                .then(batchtask.compileBatchTasks)
                 .then(docker.buildDockerImage),
 
-            'before:aws:deploy:deploy:uploadArtifacts': () => BbPromise.bind(this)
-                .then(awscli.createECRIfNotExists)
+            'after:aws:deploy:deploy:updateStack': () => BbPromise.bind(this)
+                // .then(awscli.createECRIfNotExists)
                 .then(docker.pushDockerImageToECR),
 
             'before:remove:remove': () => BbPromise.bind(this)
-                .then(awscli.deleteECR)
+                .then(awscli.deleteAllDockerImagesInECR)
         }
     }
 }
