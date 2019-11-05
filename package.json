@@ -1,6 +1,6 @@
 {
   "name": "serverless-aws-batch-custom-image",
-  "version": "1.2.8",
+  "version": "1.4.3",
   "description": "Serverless Framework Plugin for interacting with AWS Batch",
   "main": "index.js",
   "scripts": {
